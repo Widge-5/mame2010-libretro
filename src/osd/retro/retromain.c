@@ -33,13 +33,6 @@ mame2010 - libretro port of mame 0.139
 #include "retroogl.c"
 #endif
 
-typedef struct joystate_t
-{
-   int button[MAX_BUTTONS];
-   int a1[2];
-   int a2[2];
-}Joystate;
-
 const char* core_name = "mame2010";
 char libretro_content_directory[1024];
 char libretro_save_directory[1024];
