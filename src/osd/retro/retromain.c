@@ -1314,7 +1314,7 @@ void retro_poll_mame_input()
       i++;
    } while (ktable[i].retro_key_name != -1);
 
-   if (mouse_enable)
+   void process_mouse_state(void)
    {
       static int mbL = 0, mbR = 0, mbM = 0;
       int mouse_l;
@@ -1328,8 +1328,22 @@ void retro_poll_mame_input()
       mouse_l = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_LEFT);
       mouse_r = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_RIGHT);
       mouse_m = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_MIDDLE);
-      mouseLX = mouse_x*INPUT_RELATIVE_PER_PIXEL;;
-      mouseLY = mouse_y*INPUT_RELATIVE_PER_PIXEL;;
+      
+   //joystate[j].a1[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
+     // joystate[j].a1[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
+
+   mouseLX = input_state_cb(0, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X);
+   mouseLY = input_state_cb(0, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y);
+
+	if (input_state_cb(0, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_IS_OFFSCREEN))
+      {
+	      //top left
+	      //joystate[j].a1[0] = -65534;
+	      //joystate[j].a1[1] = -65534;
+      }
+
+	//mouseLX = mouse_x*INPUT_RELATIVE_PER_PIXEL;;
+   //mouseLY = mouse_y*INPUT_RELATIVE_PER_PIXEL;;
 
       if (mbR == 0 && mouse_r)
       {
