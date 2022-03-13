@@ -37,6 +37,13 @@ retromain.h
    #define DSTSHIFT_B 0
 #endif
 
+typedef struct joystate_t
+{
+   int button[MAX_BUTTONS];
+   int a1[2];
+   int a2[2];
+}Joystate;
+
 void osd_init(running_machine* machine);
 void osd_update(running_machine* machine,int skip_redraw);
 void osd_update_audio_stream(running_machine* machine,short *buffer, int samples_this_frame);
@@ -88,26 +95,45 @@ struct kt_table
    input_item_id   mame_key;
 };
 
-// fake a keyboard mapped to retro joypad 
 enum
 {
-	KEY_TAB,
-	KEY_F3,
-	KEY_F2,
-	KEY_START,
-	KEY_COIN,
-	KEY_BUTTON_1,
-	KEY_BUTTON_2,
-	KEY_BUTTON_3,
-	KEY_BUTTON_4,
-	KEY_BUTTON_5,
-	KEY_BUTTON_6, 
-	KEY_BUTTON_7,     
-	KEY_JOYSTICK_U,
-	KEY_JOYSTICK_D,
-	KEY_JOYSTICK_L,
-	KEY_JOYSTICK_R,
-	KEY_TOTAL
+   RETROPAD_B,
+   RETROPAD_Y,
+   RETROPAD_SELECT,
+   RETROPAD_START,
+   RETROPAD_PAD_UP,
+   RETROPAD_PAD_DOWN,
+   RETROPAD_PAD_LEFT,
+   RETROPAD_PAD_RIGHT,
+   RETROPAD_A,
+   RETROPAD_X,
+   RETROPAD_L,
+   RETROPAD_R,
+   RETROPAD_L2,
+   RETROPAD_R2,
+   RETROPAD_L3,
+   RETROPAD_R3,
+   RETROPAD_TOTAL
+};
+
+static const char *Buttons_Name[MAX_BUTTONS]=
+{
+   "B",		//0
+   "Y",		//1
+   "SELECT",	//2
+   "START",	//3
+   "Pad UP",	//4
+   "Pad DOWN",	//5
+   "Pad LEFT",	//6
+   "Pad RIGHT",	//7
+   "A",		//8
+   "X",		//9
+   "L",		//10
+   "R",		//11
+   "L2",		//12
+   "R2",		//13
+   "L3",		//14
+   "R3",		//15
 };
 
 const kt_table ktable[] = {
