@@ -79,7 +79,7 @@ multimouse                0
 steadykey                 0
 offscreen_reload          0
 joystick_map              auto
-joystick_deadzone         0.3
+joystick_deadzone         0
 joystick_saturation       0.85
 natural                   0
 uimodekey                 auto
