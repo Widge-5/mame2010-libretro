@@ -64,7 +64,7 @@ bool hide_warnings = false;
 
 typedef struct joystate_t
 {
-   int button[MAX_BUTTONS];
+   int button[16];
    int a1[2];
    int a2[2];
 }Joystate;
