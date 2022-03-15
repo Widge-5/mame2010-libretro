@@ -95,6 +95,28 @@ struct kt_table
    input_item_id   mame_key;
 };
 
+// fake a keyboard mapped to retro joypad 
+enum
+{
+	KEY_TAB,
+	KEY_F3,
+	KEY_F2,
+	KEY_START,
+	KEY_COIN,
+	KEY_BUTTON_1,
+	KEY_BUTTON_2,
+	KEY_BUTTON_3,
+	KEY_BUTTON_4,
+	KEY_BUTTON_5,
+	KEY_BUTTON_6, 
+	KEY_BUTTON_7,     
+	KEY_JOYSTICK_U,
+	KEY_JOYSTICK_D,
+	KEY_JOYSTICK_L,
+	KEY_JOYSTICK_R,
+	KEY_TOTAL
+};
+
 enum
 {
    RETROPAD_B,
