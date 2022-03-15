@@ -1296,7 +1296,7 @@ void process_joypad_state(void)
    unsigned i, j;
    for(j = 0;j < 4; j++)
    {
-      for(i = 0;i < MAX_BUTTONS; i++)
+      for(i = 0;i < 16; i++)
          joystate[j].button[i] = input_state_cb(j, RETRO_DEVICE_JOYPAD, 0,i)?0x80:0;
 
         joystate[j].a2[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
