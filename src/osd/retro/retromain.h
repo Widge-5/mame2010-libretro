@@ -116,7 +116,7 @@ enum
    RETROPAD_TOTAL
 };
 
-static const char *Buttons_Name[MAX_BUTTONS]=
+static const char *Buttons_Name[16]=
 {
    "B",		//0
    "Y",		//1
