@@ -37,13 +37,6 @@ retromain.h
    #define DSTSHIFT_B 0
 #endif
 
-typedef struct joystate_t
-{
-   int button[16];
-   int a1[2];
-   int a2[2];
-}Joystate;
-
 void osd_init(running_machine* machine);
 void osd_update(running_machine* machine,int skip_redraw);
 void osd_update_audio_stream(running_machine* machine,short *buffer, int samples_this_frame);
