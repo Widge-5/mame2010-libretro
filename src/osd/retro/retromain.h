@@ -37,6 +37,9 @@ retromain.h
    #define DSTSHIFT_B 0
 #endif
 
+#ifndef MAX_BUTTONS
+#define MAX_BUTTONS 16
+
 typedef struct joystate_t
 {
    int button[MAX_BUTTONS];
