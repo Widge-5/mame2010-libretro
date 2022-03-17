@@ -1050,8 +1050,8 @@ static void initInput(running_machine* machine)
    input_device_item_add_p1(P1_device, "P1 JoyD",  &P1_state[KEY_JOYSTICK_D], ITEM_ID_DOWN,  pad1_get_state);
    input_device_item_add_p1(P1_device, "P1 JoyL",  &P1_state[KEY_JOYSTICK_L], ITEM_ID_LEFT,  pad1_get_state);
    input_device_item_add_p1(P1_device, "P1 JoyR",  &P1_state[KEY_JOYSTICK_R], ITEM_ID_RIGHT, pad1_get_state);
-   input_device_item_add_p1(P1_device, "P1 AnalogX", &P1_state[KEY_ANALOG_X], ITEM_ID_ANALOG1X, pad1_get_state);
-   input_device_item_add_p1(P1_device, "P1 AnalogY", &P1_state[KEY_ANALOG_Y], ITEM_ID_ANALOG1Y, pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 AnalogX", &P1_state[KEY_ANALOG_X], ITEM_ID_XAXIS, pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 AnalogY", &P1_state[KEY_ANALOG_Y], ITEM_ID_YAXIS, pad1_get_state);
 
    input_device_item_add_p2(P2_device, "P2 Start", &P2_state[KEY_START],      ITEM_ID_2,     pad2_get_state);
    input_device_item_add_p2(P2_device, "COIN2",    &P2_state[KEY_COIN],       ITEM_ID_6,     pad2_get_state);
@@ -1059,8 +1059,8 @@ static void initInput(running_machine* machine)
    input_device_item_add_p2(P2_device, "P2 JoyD",  &P2_state[KEY_JOYSTICK_D], ITEM_ID_F,     pad2_get_state);
    input_device_item_add_p2(P2_device, "P2 JoyL",  &P2_state[KEY_JOYSTICK_L], ITEM_ID_D,     pad2_get_state);
    input_device_item_add_p2(P2_device, "P2 JoyR",  &P2_state[KEY_JOYSTICK_R], ITEM_ID_G,     pad2_get_state);
-   input_device_item_add_p2(P2_device, "P1 AnalogX", &P2_state[KEY_ANALOG_X], ITEM_ID_ANALOG2X, pad1_get_state);
-   input_device_item_add_p2(P2_device, "P1 AnalogY", &P2_state[KEY_ANALOG_Y], ITEM_ID_ANALOG2Y, pad1_get_state);
+   input_device_item_add_p2(P2_device, "P2 AnalogX", &P2_state[KEY_ANALOG_X], ITEM_ID_XAXIS, pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 AnalogY", &P2_state[KEY_ANALOG_Y], ITEM_ID_YAXIS, pad2_get_state);
 
    input_device_item_add_p3(P3_device, "P3 Start", &P3_state[KEY_START],      ITEM_ID_3,     pad3_get_state);
    input_device_item_add_p3(P3_device, "COIN3",    &P3_state[KEY_COIN],       ITEM_ID_7,     pad3_get_state);
