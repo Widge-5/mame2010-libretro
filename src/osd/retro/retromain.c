@@ -848,7 +848,12 @@ void init_input_descriptors(void)
    { INDEX, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_B,        "Button 2" },\
    { INDEX, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_X,        "Button 3" },\
    { INDEX, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_SELECT,   "Insert Coin" },\
+   { INDEX, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X, "Analog LX" },\
+   { INDEX, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y, "Analog LY" },\
+   { INDEX, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X, "Analog RX" },\
+   { INDEX, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y, "Analog RY" },\
    { INDEX, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_START,    "Start" },\
+   
    { INDEX, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_R2,       "Turbo Button" },
 
    #define describe_extended_buttons(INDEX) \
@@ -995,8 +1000,10 @@ static void initInput(running_machine* machine)
    P1_state[KEY_JOYSTICK_D] = 0;//RETRO_DEVICE_ID_JOYPAD_DOWN
    P1_state[KEY_JOYSTICK_L] = 0;//RETRO_DEVICE_ID_JOYPAD_LEFT
    P1_state[KEY_JOYSTICK_R] = 0;//RETRO_DEVICE_ID_JOYPAD_RIGHT
-   P1_state[KEY_ANALOG_X]   = 0;//RETRO_DEVICE_ID_ANALOG_X
-   P1_state[KEY_ANALOG_Y]   = 0;//RETRO_DEVICE_ID_ANALOG_Y
+   P1_state[KEY_ANALOG_LX]   = 0;//RETRO_DEVICE_ID_ANALOG_LX
+   P1_state[KEY_ANALOG_LY]   = 0;//RETRO_DEVICE_ID_ANALOG_LY
+   P1_state[KEY_ANALOG_RX]   = 0;//RETRO_DEVICE_ID_ANALOG_RX
+   P1_state[KEY_ANALOG_RY]   = 0;//RETRO_DEVICE_ID_ANALOG_RY
 
    P2_state[KEY_START]      = 0;//RETRO_DEVICE_ID_JOYPAD_START
    P2_state[KEY_COIN]       = 0;//RETRO_DEVICE_ID_JOYPAD_SELECT
@@ -1011,8 +1018,10 @@ static void initInput(running_machine* machine)
    P2_state[KEY_JOYSTICK_D] = 0;//RETRO_DEVICE_ID_JOYPAD_DOWN
    P2_state[KEY_JOYSTICK_L] = 0;//RETRO_DEVICE_ID_JOYPAD_LEFT
    P2_state[KEY_JOYSTICK_R] = 0;//RETRO_DEVICE_ID_JOYPAD_RIGHT
-   P2_state[KEY_ANALOG_X]   = 0;//RETRO_DEVICE_ID_ANALOG_X
-   P2_state[KEY_ANALOG_Y]   = 0;//RETRO_DEVICE_ID_ANALOG_Y
+   P2_state[KEY_ANALOG_LX]   = 0;//RETRO_DEVICE_ID_ANALOG_LX
+   P2_state[KEY_ANALOG_LY]   = 0;//RETRO_DEVICE_ID_ANALOG_LY
+   P2_state[KEY_ANALOG_RX]   = 0;//RETRO_DEVICE_ID_ANALOG_RX
+   P2_state[KEY_ANALOG_RY]   = 0;//RETRO_DEVICE_ID_ANALOG_RY
 
    P3_state[KEY_START]      = 0;//RETRO_DEVICE_ID_JOYPAD_START
    P3_state[KEY_COIN]       = 0;//RETRO_DEVICE_ID_JOYPAD_SELECT
@@ -1050,8 +1059,10 @@ static void initInput(running_machine* machine)
    input_device_item_add_p1(P1_device, "P1 JoyD",  &P1_state[KEY_JOYSTICK_D], ITEM_ID_DOWN,  pad1_get_state);
    input_device_item_add_p1(P1_device, "P1 JoyL",  &P1_state[KEY_JOYSTICK_L], ITEM_ID_LEFT,  pad1_get_state);
    input_device_item_add_p1(P1_device, "P1 JoyR",  &P1_state[KEY_JOYSTICK_R], ITEM_ID_RIGHT, pad1_get_state);
-   input_device_item_add_p1(P1_device, "P1 AnalogX", &P1_state[KEY_ANALOG_X], ITEM_ID_XAXIS, pad1_get_state);
-   input_device_item_add_p1(P1_device, "P1 AnalogY", &P1_state[KEY_ANALOG_Y], ITEM_ID_YAXIS, pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 AnalogLX", &P1_state[KEY_ANALOG_LX], ITEM_ID_XAXIS, pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 AnalogLY", &P1_state[KEY_ANALOG_LY], ITEM_ID_YAXIS, pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 AnalogRX", &P1_state[KEY_ANALOG_RX], ITEM_ID_RXAXIS, pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 AnalogRY", &P1_state[KEY_ANALOG_RY], ITEM_ID_RYAXIS, pad1_get_state);
 
    input_device_item_add_p2(P2_device, "P2 Start", &P2_state[KEY_START],      ITEM_ID_2,     pad2_get_state);
    input_device_item_add_p2(P2_device, "COIN2",    &P2_state[KEY_COIN],       ITEM_ID_6,     pad2_get_state);
@@ -1059,8 +1070,10 @@ static void initInput(running_machine* machine)
    input_device_item_add_p2(P2_device, "P2 JoyD",  &P2_state[KEY_JOYSTICK_D], ITEM_ID_F,     pad2_get_state);
    input_device_item_add_p2(P2_device, "P2 JoyL",  &P2_state[KEY_JOYSTICK_L], ITEM_ID_D,     pad2_get_state);
    input_device_item_add_p2(P2_device, "P2 JoyR",  &P2_state[KEY_JOYSTICK_R], ITEM_ID_G,     pad2_get_state);
-   input_device_item_add_p2(P2_device, "P2 AnalogX", &P2_state[KEY_ANALOG_X], ITEM_ID_XAXIS, pad2_get_state);
-   input_device_item_add_p2(P2_device, "P2 AnalogY", &P2_state[KEY_ANALOG_Y], ITEM_ID_YAXIS, pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 AnalogLX", &P2_state[KEY_ANALOG_LX], ITEM_ID_XAXIS, pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 AnalogLY", &P2_state[KEY_ANALOG_LY], ITEM_ID_YAXIS, pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 AnalogRX", &P2_state[KEY_ANALOG_RX], ITEM_ID_RXAXIS, pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 AnalogRY", &P2_state[KEY_ANALOG_RY], ITEM_ID_RYAXIS, pad2_get_state);
 
    input_device_item_add_p3(P3_device, "P3 Start", &P3_state[KEY_START],      ITEM_ID_3,     pad3_get_state);
    input_device_item_add_p3(P3_device, "COIN3",    &P3_state[KEY_COIN],       ITEM_ID_7,     pad3_get_state);
@@ -1481,8 +1494,10 @@ void retro_poll_mame_input()
    P1_state[KEY_JOYSTICK_D] = input_state_cb(0, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_DOWN);
    P1_state[KEY_JOYSTICK_L] = input_state_cb(0, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_LEFT);
    P1_state[KEY_JOYSTICK_R] = input_state_cb(0, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_RIGHT);
-   P1_state[KEY_ANALOG_X]   = input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X);
-   P1_state[KEY_ANALOG_Y]   = input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y);
+   P1_state[KEY_ANALOG_LX]  = input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X);
+   P1_state[KEY_ANALOG_LY]  = input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y);
+   P1_state[KEY_ANALOG_RX]  = input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X);
+   P1_state[KEY_ANALOG_RY]  = input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y);
 
    P2_state[KEY_TAB]        = input_state_cb(1, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_L2);
    P2_state[KEY_F2] 	    = input_state_cb(1, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_L3);
@@ -1499,8 +1514,10 @@ void retro_poll_mame_input()
    P2_state[KEY_JOYSTICK_D] = input_state_cb(1, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_DOWN);
    P2_state[KEY_JOYSTICK_L] = input_state_cb(1, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_LEFT);
    P2_state[KEY_JOYSTICK_R] = input_state_cb(1, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_RIGHT);
-   P2_state[KEY_ANALOG_X]   = input_state_cb(1, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X);
-   P2_state[KEY_ANALOG_Y]   = input_state_cb(1, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y);
+   P2_state[KEY_ANALOG_LX]  = input_state_cb(1, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X);
+   P2_state[KEY_ANALOG_LY]  = input_state_cb(1, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y);
+   P2_state[KEY_ANALOG_RX]  = input_state_cb(1, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X);
+   P2_state[KEY_ANALOG_RY]  = input_state_cb(1, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y);
 
    P3_state[KEY_TAB]        = input_state_cb(2, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_L2);
    P3_state[KEY_F2] 	    = input_state_cb(2, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_L3);
