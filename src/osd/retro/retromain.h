@@ -261,6 +261,10 @@ const kt_table ktable[] = {
    {"RMETA",    RETROK_RMETA,       ITEM_ID_RWIN},
    {"MENU",     RETROK_MENU,        ITEM_ID_MENU},
    {"BREAK",    RETROK_BREAK,       ITEM_ID_CANCEL},
+   {"ANALOG1X", RETROK_ANALOG1X,    ITEM_ID_ANALOG1X},
+   {"ANALOG2X", RETROK_ANALOG2X,    ITEM_ID_ANALOG2X},
+   {"ANALOG1Y", RETROK_ANALOG1Y,    ITEM_ID_ANALOG1Y},
+   {"ANALOG2Y", RETROK_ANALOG2Y,    ITEM_ID_ANALOG2Y},
    {"-1",       -1,                 ITEM_ID_INVALID},
 };
 
