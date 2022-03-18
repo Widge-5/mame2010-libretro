@@ -1018,10 +1018,6 @@ static void initInput(running_machine* machine)
    P2_state[KEY_JOYSTICK_D] = 0;//RETRO_DEVICE_ID_JOYPAD_DOWN
    P2_state[KEY_JOYSTICK_L] = 0;//RETRO_DEVICE_ID_JOYPAD_LEFT
    P2_state[KEY_JOYSTICK_R] = 0;//RETRO_DEVICE_ID_JOYPAD_RIGHT
-   P2_state[KEY_ANALOG_LX]   = 0;//RETRO_DEVICE_ID_ANALOG_LX
-   P2_state[KEY_ANALOG_LY]   = 0;//RETRO_DEVICE_ID_ANALOG_LY
-   P2_state[KEY_ANALOG_RX]   = 0;//RETRO_DEVICE_ID_ANALOG_RX
-   P2_state[KEY_ANALOG_RY]   = 0;//RETRO_DEVICE_ID_ANALOG_RY
    P2_state[LX] = 0;
    P2_state[LY] = 0;
    P2_state[RX] = 0;
