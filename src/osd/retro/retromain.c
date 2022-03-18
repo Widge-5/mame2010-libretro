@@ -1083,10 +1083,10 @@ static void initInput(running_machine* machine)
    input_device_item_add_p2(P2_device, "RY",       &P2_state[RY],             ITEM_ID_RYAXIS,    generic_axis_get_state);
    input_device_item_add_p2(P2_device, "P1 Start", &P2_state[KEY_START],      ITEM_ID_START,     pad2_get_state);
    input_device_item_add_p2(P2_device, "COIN1",    &P2_state[KEY_COIN],       ITEM_ID_SELECT,    pad2_get_state);
-   input_device_item_add_p2(P2_device, "P1 hatU",  &P2_state[KEY_JOYSTICK_U], ITEM_ID_HAT1UP,    pad2_get_state);
-   input_device_item_add_p2(P2_device, "P1 hatD",  &P2_state[KEY_JOYSTICK_D], ITEM_ID_HAT1DOWN,  pad2_get_state);
-   input_device_item_add_p2(P2_device, "P1 hatL",  &P2_state[KEY_JOYSTICK_L], ITEM_ID_HAT1LEFT,  pad2_get_state);
-   input_device_item_add_p2(P2_device, "P1 hatR",  &P2_state[KEY_JOYSTICK_R], ITEM_ID_HAT1RIGHT, pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 hatU",  &P2_state[KEY_JOYSTICK_U], ITEM_ID_HAT1UP,    pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 hatD",  &P2_state[KEY_JOYSTICK_D], ITEM_ID_HAT1DOWN,  pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 hatL",  &P2_state[KEY_JOYSTICK_L], ITEM_ID_HAT1LEFT,  pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 hatR",  &P2_state[KEY_JOYSTICK_R], ITEM_ID_HAT1RIGHT, pad2_get_state);
    input_device_item_add_p2(P2_device, "P2 B1",    &P2_state[KEY_BUTTON_1],   ITEM_ID_BUTTON1,   pad2_get_state);
    input_device_item_add_p2(P2_device, "P2 B2",    &P2_state[KEY_BUTTON_2],   ITEM_ID_BUTTON2,   pad2_get_state);
    input_device_item_add_p2(P2_device, "P2 B3",    &P2_state[KEY_BUTTON_3],   ITEM_ID_BUTTON3,   pad2_get_state);
@@ -1099,37 +1099,37 @@ static void initInput(running_machine* machine)
    input_device_item_add_p3(P3_device, "LY",       &P3_state[LY],             ITEM_ID_YAXIS,     generic_axis_get_state);
    input_device_item_add_p3(P3_device, "RX",       &P3_state[RX],             ITEM_ID_RXAXIS,    generic_axis_get_state);
    input_device_item_add_p3(P3_device, "RY",       &P3_state[RY],             ITEM_ID_RYAXIS,    generic_axis_get_state);
-   input_device_item_add_p3(P3_device, "P1 Start", &P3_state[KEY_START],      ITEM_ID_START,     pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 Start", &P3_state[KEY_START],      ITEM_ID_START,     pad3_get_state);
    input_device_item_add_p3(P3_device, "COIN1",    &P3_state[KEY_COIN],       ITEM_ID_SELECT,    pad3_get_state);
-   input_device_item_add_p3(P3_device, "P1 hatU",  &P3_state[KEY_JOYSTICK_U], ITEM_ID_HAT1UP,    pad3_get_state);
-   input_device_item_add_p3(P3_device, "P1 hatD",  &P3_state[KEY_JOYSTICK_D], ITEM_ID_HAT1DOWN,  pad3_get_state);
-   input_device_item_add_p3(P3_device, "P1 hatL",  &P3_state[KEY_JOYSTICK_L], ITEM_ID_HAT1LEFT,  pad3_get_state);
-   input_device_item_add_p3(P3_device, "P1 hatR",  &P3_state[KEY_JOYSTICK_R], ITEM_ID_HAT1RIGHT, pad3_get_state);
-   input_device_item_add_p3(P3_device, "P2 B1",    &P3_state[KEY_BUTTON_1],   ITEM_ID_BUTTON1,   pad3_get_state);
-   input_device_item_add_p3(P3_device, "P2 B2",    &P3_state[KEY_BUTTON_2],   ITEM_ID_BUTTON2,   pad3_get_state);
-   input_device_item_add_p3(P3_device, "P2 B3",    &P3_state[KEY_BUTTON_3],   ITEM_ID_BUTTON3,   pad3_get_state);
-   input_device_item_add_p3(P3_device, "P2 B4",    &P3_state[KEY_BUTTON_4],   ITEM_ID_BUTTON4,   pad3_get_state);
-   input_device_item_add_p3(P3_device, "P2 B5",    &P3_state[KEY_BUTTON_5],   ITEM_ID_BUTTON5,   pad3_get_state);
-   input_device_item_add_p3(P3_device, "P2 B6",    &P3_state[KEY_BUTTON_6],   ITEM_ID_BUTTON6,   pad3_get_state);
-   input_device_item_add_p3(P3_device, "P2 B7",    &P3_state[KEY_BUTTON_7],   ITEM_ID_BUTTON7,   pad3_get_state); 
+   input_device_item_add_p3(P3_device, "P3 hatU",  &P3_state[KEY_JOYSTICK_U], ITEM_ID_HAT1UP,    pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 hatD",  &P3_state[KEY_JOYSTICK_D], ITEM_ID_HAT1DOWN,  pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 hatL",  &P3_state[KEY_JOYSTICK_L], ITEM_ID_HAT1LEFT,  pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 hatR",  &P3_state[KEY_JOYSTICK_R], ITEM_ID_HAT1RIGHT, pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B1",    &P3_state[KEY_BUTTON_1],   ITEM_ID_BUTTON1,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B2",    &P3_state[KEY_BUTTON_2],   ITEM_ID_BUTTON2,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B3",    &P3_state[KEY_BUTTON_3],   ITEM_ID_BUTTON3,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B4",    &P3_state[KEY_BUTTON_4],   ITEM_ID_BUTTON4,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B5",    &P3_state[KEY_BUTTON_5],   ITEM_ID_BUTTON5,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B6",    &P3_state[KEY_BUTTON_6],   ITEM_ID_BUTTON6,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B7",    &P3_state[KEY_BUTTON_7],   ITEM_ID_BUTTON7,   pad3_get_state); 
 
-   input_device_item_add_p3(P4_device, "LX",       &P4_state[LX],             ITEM_ID_XAXIS,     generic_axis_get_state);
-   input_device_item_add_p3(P4_device, "LY",       &P4_state[LY],             ITEM_ID_YAXIS,     generic_axis_get_state);
-   input_device_item_add_p3(P4_device, "RX",       &P4_state[RX],             ITEM_ID_RXAXIS,    generic_axis_get_state);
-   input_device_item_add_p3(P4_device, "RY",       &P4_state[RY],             ITEM_ID_RYAXIS,    generic_axis_get_state);
-   input_device_item_add_p3(P4_device, "P1 Start", &P4_state[KEY_START],      ITEM_ID_START,     pad4_get_state);
-   input_device_item_add_p3(P4_device, "COIN1",    &P4_state[KEY_COIN],       ITEM_ID_SELECT,    pad4_get_state);
-   input_device_item_add_p3(P4_device, "P1 hatU",  &P4_state[KEY_JOYSTICK_U], ITEM_ID_HAT1UP,    pad4_get_state);
-   input_device_item_add_p3(P4_device, "P1 hatD",  &P4_state[KEY_JOYSTICK_D], ITEM_ID_HAT1DOWN,  pad4_get_state);
-   input_device_item_add_p3(P4_device, "P1 hatL",  &P4_state[KEY_JOYSTICK_L], ITEM_ID_HAT1LEFT,  pad4_get_state);
-   input_device_item_add_p3(P4_device, "P1 hatR",  &P4_state[KEY_JOYSTICK_R], ITEM_ID_HAT1RIGHT, pad4_get_state);
-   input_device_item_add_p3(P4_device, "P2 B1",    &P4_state[KEY_BUTTON_1],   ITEM_ID_BUTTON1,   pad4_get_state);
-   input_device_item_add_p3(P4_device, "P2 B2",    &P4_state[KEY_BUTTON_2],   ITEM_ID_BUTTON2,   pad4_get_state);
-   input_device_item_add_p3(P4_device, "P2 B3",    &P4_state[KEY_BUTTON_3],   ITEM_ID_BUTTON3,   pad4_get_state);
-   input_device_item_add_p3(P4_device, "P2 B4",    &P4_state[KEY_BUTTON_4],   ITEM_ID_BUTTON4,   pad4_get_state);
-   input_device_item_add_p3(P4_device, "P2 B5",    &P4_state[KEY_BUTTON_5],   ITEM_ID_BUTTON5,   pad4_get_state);
-   input_device_item_add_p3(P4_device, "P2 B6",    &P4_state[KEY_BUTTON_6],   ITEM_ID_BUTTON6,   pad4_get_state);
-   input_device_item_add_p3(P4_device, "P2 B7",    &P4_state[KEY_BUTTON_7],   ITEM_ID_BUTTON7,   pad4_get_state); 
+   input_device_item_add_p4(P4_device, "LX",       &P4_state[LX],             ITEM_ID_XAXIS,     generic_axis_get_state);
+   input_device_item_add_p4(P4_device, "LY",       &P4_state[LY],             ITEM_ID_YAXIS,     generic_axis_get_state);
+   input_device_item_add_p4(P4_device, "RX",       &P4_state[RX],             ITEM_ID_RXAXIS,    generic_axis_get_state);
+   input_device_item_add_p4(P4_device, "RY",       &P4_state[RY],             ITEM_ID_RYAXIS,    generic_axis_get_state);
+   input_device_item_add_p4(P4_device, "P4 Start", &P4_state[KEY_START],      ITEM_ID_START,     pad4_get_state);
+   input_device_item_add_p4(P4_device, "COIN1",    &P4_state[KEY_COIN],       ITEM_ID_SELECT,    pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 hatU",  &P4_state[KEY_JOYSTICK_U], ITEM_ID_HAT1UP,    pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 hatD",  &P4_state[KEY_JOYSTICK_D], ITEM_ID_HAT1DOWN,  pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 hatL",  &P4_state[KEY_JOYSTICK_L], ITEM_ID_HAT1LEFT,  pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 hatR",  &P4_state[KEY_JOYSTICK_R], ITEM_ID_HAT1RIGHT, pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B1",    &P4_state[KEY_BUTTON_1],   ITEM_ID_BUTTON1,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B2",    &P4_state[KEY_BUTTON_2],   ITEM_ID_BUTTON2,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B3",    &P4_state[KEY_BUTTON_3],   ITEM_ID_BUTTON3,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B4",    &P4_state[KEY_BUTTON_4],   ITEM_ID_BUTTON4,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B5",    &P4_state[KEY_BUTTON_5],   ITEM_ID_BUTTON5,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B6",    &P4_state[KEY_BUTTON_6],   ITEM_ID_BUTTON6,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B7",    &P4_state[KEY_BUTTON_7],   ITEM_ID_BUTTON7,   pad4_get_state); 
 
    retrokbd_device = input_device_add(machine, DEVICE_CLASS_KEYBOARD, "Retrokdb", NULL);
 
@@ -1154,39 +1154,145 @@ static void initInput(running_machine* machine)
 
 void process_joypad_state(void)
 {
-   unsigned i, j;
-   for(j = 0;j < 4; j++)
-   {
-      for(i = 0;i < 16; i++)
-         joystate[j].button[i] = input_state_cb(j, RETRO_DEVICE_JOYPAD, 0,i)?0x80:0;
+   input_device_item_add_p1(P1_device, "P1 Start", &P1_state[KEY_START],      ITEM_ID_START,     pad1_get_state);
+   input_device_item_add_p1(P1_device, "COIN1",    &P1_state[KEY_COIN],       ITEM_ID_SELECT,    pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 hatU",  &P1_state[KEY_JOYSTICK_U], ITEM_ID_HAT1UP,    pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 hatD",  &P1_state[KEY_JOYSTICK_D], ITEM_ID_HAT1DOWN,  pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 hatL",  &P1_state[KEY_JOYSTICK_L], ITEM_ID_HAT1LEFT,  pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 hatR",  &P1_state[KEY_JOYSTICK_R], ITEM_ID_HAT1RIGHT, pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 B1",    &P1_state[KEY_BUTTON_1],   ITEM_ID_BUTTON1 ,  pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 B2",    &P1_state[KEY_BUTTON_2],   ITEM_ID_BUTTON2 ,  pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 B3",    &P1_state[KEY_BUTTON_3],   ITEM_ID_BUTTON3,   pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 B4",    &P1_state[KEY_BUTTON_4],   ITEM_ID_BUTTON4,   pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 B5",    &P1_state[KEY_BUTTON_5],   ITEM_ID_BUTTON5,   pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 B6",    &P1_state[KEY_BUTTON_6],   ITEM_ID_BUTTON6,   pad1_get_state);
+   input_device_item_add_p1(P1_device, "P1 B7",    &P1_state[KEY_BUTTON_7],   ITEM_ID_BUTTON7,   pad1_get_state);
 
-        joystate[j].a2[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
-        joystate[j].a2[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
+   input_device_item_add_p2(P2_device, "P1 Start", &P2_state[KEY_START],      ITEM_ID_START,     pad2_get_state);
+   input_device_item_add_p2(P2_device, "COIN1",    &P2_state[KEY_COIN],       ITEM_ID_SELECT,    pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 hatU",  &P2_state[KEY_JOYSTICK_U], ITEM_ID_HAT1UP,    pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 hatD",  &P2_state[KEY_JOYSTICK_D], ITEM_ID_HAT1DOWN,  pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 hatL",  &P2_state[KEY_JOYSTICK_L], ITEM_ID_HAT1LEFT,  pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 hatR",  &P2_state[KEY_JOYSTICK_R], ITEM_ID_HAT1RIGHT, pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 B1",    &P2_state[KEY_BUTTON_1],   ITEM_ID_BUTTON1,   pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 B2",    &P2_state[KEY_BUTTON_2],   ITEM_ID_BUTTON2,   pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 B3",    &P2_state[KEY_BUTTON_3],   ITEM_ID_BUTTON3,   pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 B4",    &P2_state[KEY_BUTTON_4],   ITEM_ID_BUTTON4,   pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 B5",    &P2_state[KEY_BUTTON_5],   ITEM_ID_BUTTON5,   pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 B6",    &P2_state[KEY_BUTTON_6],   ITEM_ID_BUTTON6,   pad2_get_state);
+   input_device_item_add_p2(P2_device, "P2 B7",    &P2_state[KEY_BUTTON_7],   ITEM_ID_BUTTON7,   pad2_get_state); 
 
-	joystate[j].a1[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
-        joystate[j].a1[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
+   input_device_item_add_p3(P3_device, "P3 Start", &P3_state[KEY_START],      ITEM_ID_START,     pad3_get_state);
+   input_device_item_add_p3(P3_device, "COIN1",    &P3_state[KEY_COIN],       ITEM_ID_SELECT,    pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 hatU",  &P3_state[KEY_JOYSTICK_U], ITEM_ID_HAT1UP,    pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 hatD",  &P3_state[KEY_JOYSTICK_D], ITEM_ID_HAT1DOWN,  pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 hatL",  &P3_state[KEY_JOYSTICK_L], ITEM_ID_HAT1LEFT,  pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 hatR",  &P3_state[KEY_JOYSTICK_R], ITEM_ID_HAT1RIGHT, pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B1",    &P3_state[KEY_BUTTON_1],   ITEM_ID_BUTTON1,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B2",    &P3_state[KEY_BUTTON_2],   ITEM_ID_BUTTON2,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B3",    &P3_state[KEY_BUTTON_3],   ITEM_ID_BUTTON3,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B4",    &P3_state[KEY_BUTTON_4],   ITEM_ID_BUTTON4,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B5",    &P3_state[KEY_BUTTON_5],   ITEM_ID_BUTTON5,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B6",    &P3_state[KEY_BUTTON_6],   ITEM_ID_BUTTON6,   pad3_get_state);
+   input_device_item_add_p3(P3_device, "P3 B7",    &P3_state[KEY_BUTTON_7],   ITEM_ID_BUTTON7,   pad3_get_state); 
+
+   input_device_item_add_p4(P4_device, "P4 Start", &P4_state[KEY_START],      ITEM_ID_START,     pad4_get_state);
+   input_device_item_add_p4(P4_device, "COIN1",    &P4_state[KEY_COIN],       ITEM_ID_SELECT,    pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 hatU",  &P4_state[KEY_JOYSTICK_U], ITEM_ID_HAT1UP,    pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 hatD",  &P4_state[KEY_JOYSTICK_D], ITEM_ID_HAT1DOWN,  pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 hatL",  &P4_state[KEY_JOYSTICK_L], ITEM_ID_HAT1LEFT,  pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 hatR",  &P4_state[KEY_JOYSTICK_R], ITEM_ID_HAT1RIGHT, pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B1",    &P4_state[KEY_BUTTON_1],   ITEM_ID_BUTTON1,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B2",    &P4_state[KEY_BUTTON_2],   ITEM_ID_BUTTON2,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B3",    &P4_state[KEY_BUTTON_3],   ITEM_ID_BUTTON3,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B4",    &P4_state[KEY_BUTTON_4],   ITEM_ID_BUTTON4,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B5",    &P4_state[KEY_BUTTON_5],   ITEM_ID_BUTTON5,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B6",    &P4_state[KEY_BUTTON_6],   ITEM_ID_BUTTON6,   pad4_get_state);
+   input_device_item_add_p4(P4_device, "P4 B7",    &P4_state[KEY_BUTTON_7],   ITEM_ID_BUTTON7,   pad4_get_state);
+
+        P1_state[RX] = 2 * (input_state_cb(0, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
+        P1_state[RY] = 2 * (input_state_cb(0, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
+        P2_state[RX] = 2 * (input_state_cb(1, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
+        P2_state[RY] = 2 * (input_state_cb(1, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
+        P3_state[RX] = 2 * (input_state_cb(2, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
+        P3_state[RY] = 2 * (input_state_cb(2, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
+        P4_state[RX] = 2 * (input_state_cb(3, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
+        P4_state[RY] = 2 * (input_state_cb(3, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
+
+	P1_state[LX] = 2 * (input_state_cb(0, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
+        P1_state[LY] = 2 * (input_state_cb(0, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
+	P2_state[LX] = 2 * (input_state_cb(1, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
+        P2_state[LY] = 2 * (input_state_cb(1, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
+	P3_state[LX] = 2 * (input_state_cb(2, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
+        P3_state[LY] = 2 * (input_state_cb(2, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
+	P4_state[LX] = 2 * (input_state_cb(3, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
+        P4_state[LY] = 2 * (input_state_cb(3, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
 
 	   	   //joystate[j].a2[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
       //joystate[j].a2[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
 
 	   
-      if (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_IS_OFFSCREEN))
+      if (input_state_cb(0, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_IS_OFFSCREEN))
         {
 	//      //top left
-	      joystate[j].a2[0] = -65534;
-	      joystate[j].a2[1] = -65534;
-      }
+	      P1_state[RX] = -65534;
+	      P1_state[RY] = -65534;
+        }
+      if (input_state_cb(1, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_IS_OFFSCREEN))
+        {
+	//      //top left
+	      P1_state[RX] = -65534;
+	      P1_state[RY] = -65534;
+        }
+      if (input_state_cb(2, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_IS_OFFSCREEN))
+        {
+	//      //top left
+	      P1_state[RX] = -65534;
+	      P1_state[RY] = -65534;
+        }
+      if (input_state_cb(3, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_IS_OFFSCREEN))
+        {
+	//      //top left
+	      P1_state[RX] = -65534;
+	      P1_state[RY] = -65534;
+        }
+}
 
+//void process_joypad_state(void)
+//{
+//   unsigned i, j;
+//   for(j = 0;j < 4; j++)
+//   {
+//      for(i = 0;i < 16; i++)
+//        joystate[j].button[i] = input_state_cb(j, RETRO_DEVICE_JOYPAD, 0,i)?0x80:0;
+//
+//        joystate[j].a2[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
+//        joystate[j].a2[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
+//
+//	joystate[j].a1[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
+//        joystate[j].a1[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
+//
+	   	   //joystate[j].a2[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
+      //joystate[j].a2[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
+//
+//	   
+//      if (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_IS_OFFSCREEN))
+//        {
+	//      //top left
+//	      joystate[j].a2[0] = -65534;
+//	      joystate[j].a2[1] = -65534;
+//      }
+//
       //debug
       //if (joystate[j].a1[0] == 0 && joystate[j].a1[1] == 0)
       //{
 	 //     joystate[j].a1[0] = 20000;
 	   //   joystate[j].a1[1] = 20000;
       //}
-
-
-        }
-}
+//
+//
+//        }
+//}
 
 void process_mouse_state(void)
 {
@@ -1326,14 +1432,10 @@ void retro_poll_mame_input()
    P1_state[KEY_JOYSTICK_D] = input_state_cb(0, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_DOWN);
    P1_state[KEY_JOYSTICK_L] = input_state_cb(0, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_LEFT);
    P1_state[KEY_JOYSTICK_R] = input_state_cb(0, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_RIGHT);
-   input_device_item_add_joy (i, "LX", &joystate[i].a1[0], ITEM_ID_XAXIS, generic_axis_get_state);
-   input_device_item_add_joy (i, "LY", &joystate[i].a1[1], ITEM_ID_YAXIS, generic_axis_get_state);
-   input_device_item_add_joy (i, "RX", &joystate[i].a2[0], ITEM_ID_RXAXIS, generic_axis_get_state);
-   input_device_item_add_joy (i, "RY", &joystate[i].a2[1], ITEM_ID_RYAXIS, generic_axis_get_state);
-   //P1_state[LX] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
-   //P1_state[LY] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
-   //P1_state[RX] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
-   //P1_state[RY] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
+   P1_state[LX] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
+   P1_state[LY] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
+   P1_state[RX] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
+   P1_state[RY] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
 
    P2_state[KEY_TAB]        = input_state_cb(1, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_L2);
    P2_state[KEY_F2] 	    = input_state_cb(1, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_L3);
@@ -1350,10 +1452,10 @@ void retro_poll_mame_input()
    P2_state[KEY_JOYSTICK_D] = input_state_cb(1, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_DOWN);
    P2_state[KEY_JOYSTICK_L] = input_state_cb(1, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_LEFT);
    P2_state[KEY_JOYSTICK_R] = input_state_cb(1, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_RIGHT);
-   //P2_state[LX] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
-   //P2_state[LY] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
-   //P2_state[RX] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
-   //P2_state[RY] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
+   P2_state[LX] = 2 * (input_state_cb(1, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
+   P2_state[LY] = 2 * (input_state_cb(1, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
+   P2_state[RX] = 2 * (input_state_cb(1, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
+   P2_state[RY] = 2 * (input_state_cb(1, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
 
    P3_state[KEY_TAB]        = input_state_cb(2, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_L2);
    P3_state[KEY_F2] 	    = input_state_cb(2, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_L3);
@@ -1370,10 +1472,10 @@ void retro_poll_mame_input()
    P3_state[KEY_JOYSTICK_D] = input_state_cb(2, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_DOWN);
    P3_state[KEY_JOYSTICK_L] = input_state_cb(2, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_LEFT);
    P3_state[KEY_JOYSTICK_R] = input_state_cb(2, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_RIGHT);
-   //P3_state[LX] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
-   //P3_state[LY] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
-   //P3_state[RX] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
-   //P3_state[RY] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
+   P3_state[LX] = 2 * (input_state_cb(2, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
+   P3_state[LY] = 2 * (input_state_cb(2, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
+   P3_state[RX] = 2 * (input_state_cb(2, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
+   P3_state[RY] = 2 * (input_state_cb(2, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
 	
    P4_state[KEY_TAB]        = input_state_cb(3, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_L2);
    P4_state[KEY_F2] 	    = input_state_cb(3, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_L3);
@@ -1390,10 +1492,10 @@ void retro_poll_mame_input()
    P4_state[KEY_JOYSTICK_D] = input_state_cb(3, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_DOWN);
    P4_state[KEY_JOYSTICK_L] = input_state_cb(3, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_LEFT);
    P4_state[KEY_JOYSTICK_R] = input_state_cb(3, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_RIGHT);
-   //P4_state[LX] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
-   //P4_state[LY] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
-   //P4_state[RX] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
-   //P4_state[RY] = 2 * (input_state_cb(0, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
+   P4_state[LX] = 2 * (input_state_cb(3, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
+   P4_state[LY] = 2 * (input_state_cb(3, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
+   P4_state[RX] = 2 * (input_state_cb(3, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
+   P4_state[RY] = 2 * (input_state_cb(3, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
    
 }
 
