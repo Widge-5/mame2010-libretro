@@ -1152,8 +1152,78 @@ static void initInput(running_machine* machine)
 
 }
 
-void process_joypad_state(void)
+void retro_poll_mame_input()
 {
+   input_poll_cb();
+
+   // process_keyboard_state
+   /* TODO: handle mods:SHIFT/CTRL/ALT/META/NUMLOCK/CAPSLOCK/SCROLLOCK */
+
+   unsigned i = 0;
+   do
+   {
+      retrokbd_state[ktable[i].retro_key_name] = input_state_cb(0, RETRO_DEVICE_KEYBOARD, 0, ktable[i].retro_key_name) ? 0x80 : 0;
+
+      if (retrokbd_state[ktable[i].retro_key_name] && retrokbd_state2[ktable[i].retro_key_name] == 0)
+      {
+         ui_ipt_pushchar = ktable[i].retro_key_name;
+         retrokbd_state2[ktable[i].retro_key_name] = 1;
+      }
+      else if (!retrokbd_state[ktable[i].retro_key_name] && retrokbd_state2[ktable[i].retro_key_name] == 1)
+         retrokbd_state2[ktable[i].retro_key_name] = 0;
+
+      i++;
+   } while (ktable[i].retro_key_name != -1);
+
+   if (mouse_enable)
+   {
+   static int mbL = 0, mbR = 0, mbM = 0;
+   int mouse_l;
+   int mouse_r;
+   int mouse_m;
+   int16_t mouse_x;
+   int16_t mouse_y;
+
+   mouse_x = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_X);
+   mouse_y = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_Y);
+   mouse_l = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_LEFT);
+   mouse_r = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_RIGHT);
+   mouse_m = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_MIDDLE);
+
+	mouseLX = mouse_x*INPUT_RELATIVE_PER_PIXEL;;
+        mouseLY = mouse_y*INPUT_RELATIVE_PER_PIXEL;;
+   if(mbL==0 && mouse_l)
+   {
+      mbL=1;
+      mouseBUT[0]=0x80;
+   }
+   else if(mbL==1 && !mouse_l)
+   {
+      mouseBUT[0]=0;
+      mbL=0;
+   }
+   if(mbR==0 && mouse_r)
+   {
+      mbR=1;
+      mouseBUT[1]=0x80;
+   }
+   else if(mbR==1 && !mouse_r)
+   {
+      mouseBUT[1]=0;
+      mbR=0;
+   }
+	
+   if(mbM==0 && mouse_m)
+   {
+      mbM=1;
+      mouseBUT[2]=0x80;
+   }
+   else if(mbM==1 && !mouse_m)
+   {
+      mouseBUT[2]=0;
+      mbM=0;
+   }
+   }  
         P1_state[RX] = 2 * (input_state_cb(0, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
         P1_state[RY] = 2 * (input_state_cb(0, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
         P2_state[RX] = 2 * (input_state_cb(1, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
@@ -1235,11 +1305,7 @@ void process_joypad_state(void)
    P4_state[KEY_JOYSTICK_D] = input_state_cb(3, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_DOWN);
    P4_state[KEY_JOYSTICK_L] = input_state_cb(3, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_LEFT);
    P4_state[KEY_JOYSTICK_R] = input_state_cb(3, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_RIGHT);
-
-	   	   //joystate[j].a2[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
-      //joystate[j].a2[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
-
-	   
+  
       if (input_state_cb(0, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_IS_OFFSCREEN))
         {
 	//      //top left
@@ -1264,169 +1330,6 @@ void process_joypad_state(void)
 	      P4_state[RX] = -65534;
 	      P4_state[RY] = -65534;
         }
-}
-
-//void process_joypad_state(void)
-//{
-//   unsigned i, j;
-//   for(j = 0;j < 4; j++)
-//   {
-//      for(i = 0;i < 16; i++)
-//        joystate[j].button[i] = input_state_cb(j, RETRO_DEVICE_JOYPAD, 0,i)?0x80:0;
-//
-//        joystate[j].a2[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
-//        joystate[j].a2[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
-//
-//	joystate[j].a1[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_X));
-//        joystate[j].a1[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_LEFT, RETRO_DEVICE_ID_ANALOG_Y));
-//
-	   	   //joystate[j].a2[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_X));
-      //joystate[j].a2[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, RETRO_DEVICE_INDEX_ANALOG_RIGHT, RETRO_DEVICE_ID_ANALOG_Y));
-//
-//	   
-//      if (input_state_cb(j, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_IS_OFFSCREEN))
-//        {
-	//      //top left
-//	      joystate[j].a2[0] = -65534;
-//	      joystate[j].a2[1] = -65534;
-//      }
-//
-      //debug
-      //if (joystate[j].a1[0] == 0 && joystate[j].a1[1] == 0)
-      //{
-	 //     joystate[j].a1[0] = 20000;
-	   //   joystate[j].a1[1] = 20000;
-      //}
-//
-//
-//        }
-//}
-
-void process_mouse_state(void)
-{
-   static int mbL = 0, mbR = 0, mbM = 0;
-   int mouse_l;
-   int mouse_r;
-   int mouse_m;
-   int16_t mouse_x;
-   int16_t mouse_y;
-
-   mouse_x = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_X);
-   mouse_y = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_Y);
-   mouse_l = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_LEFT);
-   mouse_r = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_RIGHT);
-   mouse_m = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_MIDDLE);
-
-   //joystate[j].a1[0] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
-     // joystate[j].a1[1] = 2 * (input_state_cb(j, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
-
-   //mouseLX = input_state_cb(0, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X);
-   //mouseLY = input_state_cb(0, RETRO_DEVICE_LIGHTGUN,  0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y);
-
-	//if (input_state_cb(0, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_IS_OFFSCREEN))
-      //{
-	      //top left
-	      //joystate[j].a1[0] = -65534;
-	      //joystate[j].a1[1] = -65534;
-     // }
-
-	mouseLX = mouse_x*INPUT_RELATIVE_PER_PIXEL;;
-        mouseLY = mouse_y*INPUT_RELATIVE_PER_PIXEL;;
-   if(mbL==0 && mouse_l)
-   {
-      mbL=1;
-      mouseBUT[0]=0x80;
-   }
-   else if(mbL==1 && !mouse_l)
-   {
-      mouseBUT[0]=0;
-      mbL=0;
-   }
-   if(mbR==0 && mouse_r)
-   {
-      mbR=1;
-      mouseBUT[1]=0x80;
-   }
-   else if(mbR==1 && !mouse_r)
-   {
-      mouseBUT[1]=0;
-      mbR=0;
-   }
-	
-   if(mbM==0 && mouse_m)
-   {
-      mbM=1;
-      mouseBUT[2]=0x80;
-   }
-   else if(mbM==1 && !mouse_m)
-   {
-      mouseBUT[2]=0;
-      mbM=0;
-   }
-}
-
-void retro_poll_mame_input()
-{
-   input_poll_cb();
-
-   // process_keyboard_state
-   /* TODO: handle mods:SHIFT/CTRL/ALT/META/NUMLOCK/CAPSLOCK/SCROLLOCK */
-
-   unsigned i = 0;
-   do
-   {
-      retrokbd_state[ktable[i].retro_key_name] = input_state_cb(0, RETRO_DEVICE_KEYBOARD, 0, ktable[i].retro_key_name) ? 0x80 : 0;
-
-      if (retrokbd_state[ktable[i].retro_key_name] && retrokbd_state2[ktable[i].retro_key_name] == 0)
-      {
-         ui_ipt_pushchar = ktable[i].retro_key_name;
-         retrokbd_state2[ktable[i].retro_key_name] = 1;
-      }
-      else if (!retrokbd_state[ktable[i].retro_key_name] && retrokbd_state2[ktable[i].retro_key_name] == 1)
-         retrokbd_state2[ktable[i].retro_key_name] = 0;
-
-      i++;
-   } while (ktable[i].retro_key_name != -1);
-
-   if (mouse_enable)
-   {
-      static int mbL = 0, mbR = 0;
-      int mouse_l;
-      int mouse_r;
-      int mouse_m;
-      int16_t mouse_x;
-      int16_t mouse_y;
-
-      mouse_x = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_X);
-      mouse_y = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_Y);
-      mouse_l = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_LEFT);
-      mouse_r = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_RIGHT);
-      mouse_m = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_MIDDLE);
-      mouseLX = mouse_x*INPUT_RELATIVE_PER_PIXEL;;
-      mouseLY = mouse_y*INPUT_RELATIVE_PER_PIXEL;;
-
-      if (mbL == 0 && mouse_l)
-      {
-         mbL = 1;
-         mouseBUT[0] = 0x80;
-      }
-      else if (mbL == 1 && !mouse_l)
-      {
-         mouseBUT[0] = 0;
-         mbL = 0;
-      }
-
-      if (mbR == 0 && mouse_r)
-      {
-         mbR = 1;
-         mouseBUT[1] = 0x80;
-      }
-      else if(mbR == 1 && !mouse_r)
-      {
-         mouseBUT[1] = 0;
-         mbR = 0;
-      }
-   }  
 }
 
 
