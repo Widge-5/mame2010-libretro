@@ -1311,6 +1311,7 @@ void process_mouse_state(void)
    int16_t mouse_x;
    int16_t mouse_y;
 
+   mouse_x = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_X);
    mouse_y = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_Y);
    mouse_l = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_LEFT);
    mouse_r = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_RIGHT);
@@ -1392,6 +1393,7 @@ void retro_poll_mame_input()
       static int mbL = 0, mbR = 0;
       int mouse_l;
       int mouse_r;
+      int mouse_m;
       int16_t mouse_x;
       int16_t mouse_y;
 
@@ -1399,6 +1401,7 @@ void retro_poll_mame_input()
       mouse_y = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_Y);
       mouse_l = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_LEFT);
       mouse_r = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_RIGHT);
+      mouse_m = input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_MIDDLE);
       mouseLX = mouse_x*INPUT_RELATIVE_PER_PIXEL;;
       mouseLY = mouse_y*INPUT_RELATIVE_PER_PIXEL;;
 
