@@ -639,6 +639,11 @@ static void check_variables(void)
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
 	sample_rate = atoi(var.value);
 
+   var.key = "mame_current_cpu_overclock";
+   var.value = NULL;
+   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+	cpu_overclock = atoi(var.value);
+	
    var.key = "mame_current_turbo_button";
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
