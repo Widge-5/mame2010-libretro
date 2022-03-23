@@ -74,6 +74,7 @@ static unsigned int turbo_enable, turbo_state, turbo_delay = 5;
 static bool set_par = false;
 static double refresh_rate = 60.0;
 static int set_frame_skip;
+static int cpu_overclock = 100;
 static unsigned sample_rate = 48000;
 unsigned use_external_hiscore = 0;
 static unsigned adjust_opt[6] = {0/*Enable/Disable*/, 0/*Limit*/, 0/*GetRefreshRate*/, 0/*Brightness*/, 0/*Contrast*/, 0/*Gamma*/};
