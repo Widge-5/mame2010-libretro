@@ -707,11 +707,8 @@ static INPUT_PORTS_START( borntofi )
 	PORT_START("P2 Lightgun X")		
 	PORT_BIT( 0xff, 0x60, IPT_LIGHTGUN_X ) PORT_CROSSHAIR(X, 1.0, 0.0, 0) PORT_MINMAX(0x07,0xb7) PORT_SENSITIVITY(100) PORT_KEYDELTA(5) PORT_PLAYER(2)
 -- */	
-	
-/*  Y is more or less where I want it to be - just need to make sure the crosshairs align with test
-    X deviates a little left on P1 and right on P2 so testing slight variations on the second digit of porrt_bit.  */
 	PORT_START("P1 Lightgun Y")		/* 57000 */
-	PORT_BIT( 0xff, 0xb9, IPT_LIGHTGUN_Y ) PORT_CROSSHAIR(Y, (352.0 - 12) / 352, 12.0 / 352, 0) PORT_MINMAX(0x80,0xfc) PORT_SENSITIVITY(100) PORT_KEYDELTA(5) PORT_PLAYER(1)
+	PORT_BIT( 0xff, 0xba, IPT_LIGHTGUN_Y ) PORT_CROSSHAIR(Y, (352.0 - 12) / 352, 12.0 / 352, 0) PORT_MINMAX(0x80,0xfc) PORT_SENSITIVITY(100) PORT_KEYDELTA(5) PORT_PLAYER(1)
 	PORT_START("P1 Lightgun X")		/* 57001 */
 	PORT_BIT( 0xff, 0x62, IPT_LIGHTGUN_X ) PORT_CROSSHAIR(X, 1.0, 0.0, 0) PORT_MINMAX(0x07,0xb7) PORT_SENSITIVITY(100) PORT_KEYDELTA(5) PORT_PLAYER(1)
 	PORT_START("P2 Lightgun Y")		/* 57002 */
