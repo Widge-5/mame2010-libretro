@@ -1526,7 +1526,7 @@ static MACHINE_DRIVER_START( mazerbla )
 	MDRV_SCREEN_SIZE(40*8, 32*8)
 
 //	MDRV_SCREEN_VISIBLE_AREA(0*8, 32*8-1, 0*8, 32*8-1)
-	MCFG_SCREEN_VISIBLE_AREA(0*8, 32*8-1, 0*8, 28*8-1) /* Correction in line with MAME post 0.151 --WIDGE */
+	MDRV_SCREEN_VISIBLE_AREA(0*8, 32*8-1, 0*8, 28*8-1) /* Correction in line with MAME post 0.151 --WIDGE */
 	
 	MDRV_PALETTE_LENGTH(256)
 
