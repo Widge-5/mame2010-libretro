@@ -409,5 +409,5 @@ ROM_END
 
 
 GAME( 1977, triplhnt, 0, triplhnt, triplhnt, triplhnt, 0, "Atari", "Triple Hunt - Witch Hunt", 0 )
-GAME( 1977, triplhnt_a, 0, triplhnt, triplhnt, triplhnt, 0, "Atari", "Triple Hunt - Hit the Bear", 0 )
-GAME( 1977, triplhnt_b, 0, triplhnt, triplhnt, triplhnt, 0, "Atari", "Triple Hunt - Raccoon Hunt", 0 )
+GAME( 1977, triplhnt_a, triplhnt, triplhnt, triplhnt, triplhnt, 0, "Atari", "Triple Hunt - Hit the Bear", 0 )
+GAME( 1977, triplhnt_b, triplhnt, triplhnt, triplhnt, triplhnt, 0, "Atari", "Triple Hunt - Raccoon Hunt", 0 )
