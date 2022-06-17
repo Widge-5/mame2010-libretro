@@ -365,7 +365,7 @@ ROM_START( triplhnt )
 ROM_END
 
 
-ROM_START( triplhnt_a )
+ROM_START( triplhna )
 	ROM_REGION( 0x8000, "maincpu", 0 )
 	ROM_LOAD_NIB_HIGH( "8404.f1", 0x7000, 0x400, CRC(abc8acd5) SHA1(bcef2abc5829829a01aa21776c3deb2e1bf1d4ac) )
 	ROM_LOAD_NIB_LOW ( "8408.f2", 0x7000, 0x400, CRC(77fcdd3f) SHA1(ce0196abb8d6510aa9a5308f8efd6442e94272c4) )
@@ -386,7 +386,7 @@ ROM_START( triplhnt_a )
 ROM_END
 
 
-ROM_START( triplhnt_b )
+ROM_START( triplhnb )
 	ROM_REGION( 0x8000, "maincpu", 0 )
 	ROM_LOAD_NIB_HIGH( "8404.f1", 0x7000, 0x400, CRC(abc8acd5) SHA1(bcef2abc5829829a01aa21776c3deb2e1bf1d4ac) )
 	ROM_LOAD_NIB_LOW ( "8408.f2", 0x7000, 0x400, CRC(77fcdd3f) SHA1(ce0196abb8d6510aa9a5308f8efd6442e94272c4) )
@@ -409,5 +409,5 @@ ROM_END
 
 
 GAME( 1977, triplhnt, 0, triplhnt, triplhnt, triplhnt, 0, "Atari", "Triple Hunt - Witch Hunt", 0 )
-GAME( 1977, triplhnt_a, triplhnt, triplhnt, triplhnt, triplhnt, 0, "Atari", "Triple Hunt - Hit the Bear", 0 )
-GAME( 1977, triplhnt_b, triplhnt, triplhnt, triplhnt, triplhnt, 0, "Atari", "Triple Hunt - Raccoon Hunt", 0 )
+GAME( 1977, triplhna, triplhnt, triplhnt, triplhnt, triplhnt, 0, "Atari", "Triple Hunt - Hit the Bear", 0 )
+GAME( 1977, triplhnb, triplhnt, triplhnt, triplhnt, triplhnt, 0, "Atari", "Triple Hunt - Raccoon Hunt", 0 )
