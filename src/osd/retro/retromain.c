@@ -59,6 +59,7 @@ char comment_directory[1024];
 int mame_reset = -1;
 static int ui_ipt_pushchar=-1;
 
+static int greatgun_hack = 0;
 static int mouse_mode = 1;
 static bool videoapproach1_enable = false;
 bool hide_nagscreen = false;
@@ -586,6 +587,7 @@ void retro_set_environment(retro_environment_t cb)
 {
    static const struct retro_variable vars[] = {
       { "mame_current_xy_type", "XY device type (Restart); mouse|lightgun|none" },
+      { "mame_current_greatgun_hack", "Great Guns aim hack; off|on" },
       //Shell for CPU overclock setting. Search mame_current_overclock for other pieces
       //{ "mame_current_overclock", "Main CPU Overclock; 100|25|30|35|40|45|50|55|60|65|70|75|80|95|90|95|105|110|115|120" },
       { "mame_current_videoapproach1_enable", "Video approach 1 Enabled; disabled|enabled" },
@@ -628,6 +630,17 @@ static void check_variables(void)
          mouse_mode = 2;
       if (!strcmp(var.value, "none"))
 	 mouse_mode = 0;
+   }
+	
+   var.key = "mame_current_greatgun_hack";
+   var.value = NULL;
+   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+   {
+      retro_log(RETRO_LOG_INFO, "[MAME 2010] greatgun_hack value: %s\n", var.value);
+      if (!strcmp(var.value, "off"))
+	 greatgun_hack = 0;
+      if (!strcmp(var.value, "on"))
+         greatgun_hack = 1;
    }
    //Shell for CPU overclock setting. Search mame_current_overclock for other pieces
    //var.key = "mame_current_overclock";
@@ -1493,7 +1506,7 @@ void retro_poll_mame_input()
       i++;
    } while (ktable[i].retro_key_name != -1);
 
-   if (mouse_mode == 2)
+   if (mouse_mode == 2 && greatgun_hack == 0)
    {
    gun1X = 2 * (input_state_cb(0, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
    gun1Y = 2 * (input_state_cb(0, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
@@ -1511,6 +1524,14 @@ void retro_poll_mame_input()
    gun7Y = 2 * (input_state_cb(6, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
    gun8X = 2 * (input_state_cb(7, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
    gun8Y = 2 * (input_state_cb(7, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y));
+   }
+
+   if (mouse_mode == 2 && greatgun_hack == 1)
+   {
+   gun1X = 2 * (input_state_cb(0, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
+   gun1Y = 2 * (input_state_cb(0, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y)) - 7159;
+   gun2X = 2 * (input_state_cb(1, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_X));
+   gun2Y = 2 * (input_state_cb(1, RETRO_DEVICE_LIGHTGUN, 0, RETRO_DEVICE_ID_LIGHTGUN_SCREEN_Y)) - 7159;
    }
 	
    if (mouse_mode == 1)
