@@ -289,12 +289,12 @@ enum
 	IPT_PEDAL3,			/* absolute */
 	IPT_POSITIONAL,		/* absolute */
 	IPT_POSITIONAL_V,	/* absolute */
-#define __ipt_analog_absolute_end IPT_POSITIONAL_V
+	IPT_DIAL,		
+	IPT_DIAL_V,		
+	IPT_TRACKBALL_X,	
+	IPT_TRACKBALL_Y,	
+#define __ipt_analog_absolute_end IPT_TRACKBALL_Y
 
-	IPT_DIAL,			/* relative */
-	IPT_DIAL_V,			/* relative */
-	IPT_TRACKBALL_X,	/* relative */
-	IPT_TRACKBALL_Y,	/* relative */
 	IPT_MOUSE_X,		/* relative */
 	IPT_MOUSE_Y,		/* relative */
 #define __ipt_analog_end IPT_MOUSE_Y
