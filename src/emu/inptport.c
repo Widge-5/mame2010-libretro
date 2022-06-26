@@ -2254,6 +2254,10 @@ static analog_field_state *init_field_analog_state(const input_field_config *fie
 			break;
 
 		/* lightguns are absolute as well, but don't autocenter and don't interpolate their values */
+		case IPT_DIAL:
+		case IPT_DIAL_V:
+		case IPT_TRACKBALL_X:
+		case IPT_TRACKBALL_Y:                    /* -- HACK to get DIALS and TRACKBALLs treated in the same was as PADDLES and LIGHTGUNS -- */
 		case IPT_LIGHTGUN_X:
 		case IPT_LIGHTGUN_Y:
 			state->absolute = TRUE;
@@ -2265,12 +2269,8 @@ static analog_field_state *init_field_analog_state(const input_field_config *fie
 		/* these have fixed "min" and "max" values based on how many bits are in the port */
 		/* in addition, we set the wrap around min/max values to 512 * the min/max values */
 		/* this takes into account the mapping that one mouse unit ~= 512 analog units */
-		case IPT_DIAL:
-		case IPT_DIAL_V:
 		case IPT_MOUSE_X:
 		case IPT_MOUSE_Y:
-		case IPT_TRACKBALL_X:
-		case IPT_TRACKBALL_Y:
 			state->absolute = FALSE;
 			state->wraps = TRUE;
 			state->interpolate = TRUE;
