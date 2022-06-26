@@ -2243,6 +2243,11 @@ static analog_field_state *init_field_analog_state(const input_field_config *fie
 			break;
 
 		/* paddles and analog joysticks are absolute and autocenter */
+		case IPT_DIAL:
+		case IPT_DIAL_V:
+		case IPT_TRACKBALL_X:
+		case IPT_TRACKBALL_Y:                    /* -- HACK to get DIALS and TRACKBALLs treated in the same was as PADDLES and LIGHTGUNS -- */
+			
 		case IPT_AD_STICK_X:
 		case IPT_AD_STICK_Y:
 		case IPT_AD_STICK_Z:
@@ -2274,11 +2279,6 @@ static analog_field_state *init_field_analog_state(const input_field_config *fie
 
 		/* positional devices are abolute, but can also wrap like relative devices */
 		/* set each position to be 512 units */
-		case IPT_DIAL:
-		case IPT_DIAL_V:
-		case IPT_TRACKBALL_X:
-		case IPT_TRACKBALL_Y:                    /* -- HACK to get DIALS and TRACKBALLs treated in the same was as PADDLES and LIGHTGUNS -- */
-			
 		case IPT_POSITIONAL:
 		case IPT_POSITIONAL_V:
 			state->positionalscale = COMPUTE_SCALE(field->max, INPUT_ABSOLUTE_MAX - INPUT_ABSOLUTE_MIN);
