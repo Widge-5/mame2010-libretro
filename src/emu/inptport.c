@@ -2133,8 +2133,10 @@ static void init_autoselect_devices(const ioport_list &portlist, int type1, int 
 	/* extract valid strings */
 	if (strcmp(stemp, "mouse") == 0)
 	{
-		autoenable = DEVICE_CLASS_MOUSE;
-		autostring = "mouse";
+	//	autoenable = DEVICE_CLASS_MOUSE;
+	//	autostring = "mouse";
+		autoenable = DEVICE_CLASS_LIGHTGUN;
+		autostring = "lightgun";
 	}
 	else if (strcmp(stemp, "joystick") == 0)
 	{
