@@ -1189,6 +1189,8 @@ static void initInput(running_machine* machine)
 	  lightgun_hack = 6;
    else if (GDFS_LAYOUT)
 	  lightgun_hack = 7;
+   else if (FIREFOX_LAYOUT)
+	  lightgun_hack = 8;
    else
 	  lightgun_hack = 0;
 	
@@ -1721,6 +1723,25 @@ void retro_poll_mame_input()
 	 gun7Ys = 2 * gun7Yr + 21845;
          gun8Xs = 1.3429 * gun8Xr - 11366;
 	 gun8Ys = 2 * gun8Yr + 21845;
+      }
+      else if (lightgun_hack == 8) //firefox
+      {
+         gun1Xs = 1.96 * gun1Xr + 4574;
+	 gun1Ys = 2.6 * gun1Yr + 13107;
+         gun2Xs = 1.96 * gun2Xr + 4574;
+	 gun2Ys = 2.6 * gun2Yr + 13107;
+         gun3Xs = 1.96 * gun3Xr + 4574;
+	 gun3Ys = 2.6 * gun3Yr + 13107;
+         gun4Xs = 1.96 * gun4Xr + 4574;
+	 gun4Ys = 2.6 * gun4Yr + 13107;
+         gun5Xs = 1.96 * gun5Xr + 4574;
+	 gun5Ys = 2.6 * gun5Yr + 13107;
+         gun6Xs = 1.96 * gun6Xr + 4574;
+	 gun6Ys = 2.6 * gun6Yr + 13107;
+         gun7Xs = 1.96 * gun7Xr + 4574;
+	 gun7Ys = 2.6 * gun7Yr + 13107;
+         gun8Xs = 1.96 * gun8Xr + 4574;
+	 gun8Ys = 2.6 * gun8Yr + 13107;
       }
       else
       {
