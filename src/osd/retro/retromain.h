@@ -268,6 +268,9 @@ const kt_table ktable[] = {
    {"-1",       -1,                 ITEM_ID_INVALID},
 };
 
+/* Lock-On */
+#define LOCKON_LAYOUT	(core_stricmp(machine->gamedrv->name, "lockon") == 0) || (core_stricmp(machine->gamedrv->parent, "lockon") == 0)
+
 /* Blue Shark */
 #define BLUESHRK_LAYOUT	(core_stricmp(machine->gamedrv->name, "blueshrk") == 0) || (core_stricmp(machine->gamedrv->parent, "blueshrk") == 0)
 
